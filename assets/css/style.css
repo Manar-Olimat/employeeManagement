@@ -1,0 +1,25 @@
+*{
+	/* background:rgba(245, 242, 242, 0.712); */
+		/* background:rgb(163, 39, 39); */
+
+}
+
+.layout{
+	margin:0px 40px
+}
+
+.search{
+	background:white;
+	width:60%;
+	margin: 30px 18%;
+	display: block;
+	/* align-items: center;
+	text-align: center; */
+}
+
+.emp-icon svg, .emp-icon h3
+{
+	display: inline;
+	/* flex-direction: row; */
+}
+
