@@ -32,10 +32,12 @@
                 class="px-6 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring sm:mx-2"
                 placeholder="Email Address" />
 
-            <button
+          <a href="<?php echo site_url('/employee/create'); ?>">
+          <button
                 class="px-8 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">
-                Notify Me
+                Add New
             </button>
+          </a>
         </div>
 
         <p class="mt-8 text-center text-gray-700 dark:text-white text-md md:text-xl">Notify me when App is
@@ -84,9 +86,9 @@
 
 
 
- <a
-  class="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
-  href="<?php echo site_url('/employee/'.$employee['id']); ?>"
+ <div
+  class="relative block rounded-xl bg-white border border-gray-100 p-8 shadow-xl"
+  
 >
 <span
     class="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600"
@@ -96,26 +98,26 @@
 
   
 
-  <div class="mt-4 text-gray-500 sm:pr-8">
-  <div class="emp-icon">
+  <div class="mt-4 text-gray-500 bg-white sm:pr-8">
+  <div class="emp-icon bg-white">
    <svg
-   class="h-8 w-8 sm:h-10 sm:w-10 flex"
+   class="h-8 w-8 sm:h-10 sm:w-10 flex bg-white"
  xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 448 512">
  <path d="M224 0c70.7 0 128 57.3 128 128s-57.3 128-128 128s-128-57.3-128-128S153.3 0 224 0zM209.1 359.2l-18.6-31c-6.4-10.7 1.3-24.2 13.7-24.2H224h19.7c12.4 0 20.1 13.6 13.7 24.2l-18.6 31 33.4 123.9 39.5-161.2c77.2 12 136.3 78.8 136.3 159.4c0 17-13.8 30.7-30.7 30.7H265.1 182.9 30.7C13.8 512 0 498.2 0 481.3c0-80.6 59.1-147.4 136.3-159.4l39.5 161.2 33.4-123.9z"/></svg>    
  
   
-
-    <h3 class="mt-16 text-xl flex  font-bold text-gray-900">  <?php echo $employee['name'] ; ?></h3>
+<a href="<?php echo site_url('/employee/'.$employee['id']); ?>">
+    <h3 class="mt-16 text-xl flex bg-white font-bold text-gray-900">  <?php echo $employee['name'] ; ?></h3></a>
 </div>
 
-<div class="my-8 pb-4 w-full">
+<div class="my-8 pb-4 w-full bg-white">
 
-<small class="mt-2  text-sm sm:block">
+<small class="mt-2 bg-white text-sm sm:block">
       PHONE:   <?php echo $employee['phone'] ; ?>
 </small>
 
-<small class="mt-2  text-sm sm:block">
+<small class="mt-2 bg-white text-sm sm:block">
       ADDRESS:  <?php echo $employee['address'] ; ?>
 </small>
 </div>
@@ -123,18 +125,28 @@
 
   </div>
 
-  <div class="w-full ">
+  <div class="w-full bg-white">
+    <!-- EDIT POST -->
+<a href="<?php echo base_url(); ?>employees/edit/<?php echo $employee['id']; ?>">
+
   <span
     class="absolute right-4 bottom-4 rounded-full bg-blue-100 px-3 py-1.5 text-xs font-medium text-blue-600"
   >
   <i class="fa-solid fa-user-pen"></i> edit
   </span>
-
-  <span
+</a>
+<!-- DELETE EMPLOYEE FROM DB-->
+<?php echo form_open('/employees/delete/'.$employee['id']); ?>
+<button type="submit " >
+<span
     class="absolute right-24 bottom-4 rounded-full bg-red-100 px-3 py-1.5 text-xs font-medium text-red-600"
   >
   <i class="fa-solid fa-trash-can"></i> delete
   </span>
+</button>
+		<!-- <input type="submit" value="Delete" class="btn btn-danger"> -->
+	</form>
+ 
 
   <span
     class="absolute ml-4 right-44 bottom-4 rounded-full bg-red-100 px-3 py-1.5 text-xs font-medium text-red-600 "
@@ -142,7 +154,7 @@
   <i class="fa-solid fa-trash-can"></i> JS delete  
   </span>
   </div>
-</a>
+</div>
 
 <?php endforeach; ?>
 
