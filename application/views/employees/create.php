@@ -1,12 +1,3 @@
-<!-- <h1>test</h1> -->
-
-
-
-
-
-
-
-
 
 <section class="flex mt-24 items-center flex-1">
     <div class="flex flex-col w-full ">

@@ -13,12 +13,7 @@ $this->load->database();
 
 public function  get_tasks($id=FALSE){
   
-    // if ($id===FALSE) {
-    //     # code...
-    //         $query = $this->db->get('employee');
-    //         return $query->result_array();
-
-    // }
+  
     $query = $this->db->get_where('tasks',array('employee_id'=>$id));
     return $query->result_array();
 
@@ -46,6 +41,12 @@ public function delete_task($id){
 
 }
 
+public function delete_empTasks($id){
+    $this->db->where('employee_id', $id);
+     $this->db->delete('tasks');
+        return true;
+
+}
     public function update_task()
     {
 
@@ -53,7 +54,6 @@ public function delete_task($id){
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description'),
             'due_date' => $this->input->post('due_date'),
-            // 'employee_id'=> $this->input->post('employee_id'),
           
         );
     

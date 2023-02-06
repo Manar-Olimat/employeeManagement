@@ -1,12 +1,3 @@
-<!-- <h1>test</h1> -->
-
-
-
-
-
-
-
-
 
 <section class="flex mt-24 items-center flex-1">
     <div class="flex flex-col w-full ">
@@ -36,7 +27,7 @@
 <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md shadow-xl border dark:bg-gray-800">
     <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">New Task For <?php echo $employee['name'];?></h2>
 <!-- for validation msg -->
-<?php echo validation_errors(); ?>
+<!-- <?php echo validation_errors(); ?> -->
 
 <?php echo form_open_multipart('tasks/create/'.$employee['id']); ?>
 <input type="hidden" name="employee_id" value="<?php echo $employee['id']; ?>">

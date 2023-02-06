@@ -1,12 +1,3 @@
-<!-- <h1>test</h1> -->
-
-
-
-
-
-
-
-
 
 <section class="flex mt-24 items-center flex-1">
     <div class="flex flex-col w-full ">
@@ -21,10 +12,6 @@
                 Employee
             </span>
         </h1>
-
-
-
-
 
 
     </div>
@@ -122,7 +109,7 @@
     <?php } else {
     foreach ($tasks as $task):
          ?>
-        <div class="relative block rounded-xl border border-gray-100 p-8 shadow-xl" >
+        <div class="relative block rounded-xl border bg-white mb-8 border-gray-100 p-8 shadow-xl" >
             <span
                 class="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600">
                 ID: <?php echo $task['id']; ?>
@@ -172,7 +159,6 @@
 <i class="fa-solid fa-trash-can"></i> delete
 </span>
 </button>
-      <!-- <input type="submit" value="Delete" class="btn btn-danger"> -->
   </form>
 
 

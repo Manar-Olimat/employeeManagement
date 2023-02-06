@@ -5,8 +5,8 @@ class Employees extends CI_Controller {
 	
 	public function index()
 	{
-		// $this->load->view('employees/index');
         $data['employees'] = $this->Employee_model->get_employees();
+		 
 
 		$this->load->view('templates/header');
 		$this->load->view('employees/index',$data);
@@ -18,12 +18,12 @@ class Employees extends CI_Controller {
 // view single employee
 	public function view($id=NULL)
 	{
-		// $this->load->view('employees/index');
         $data['employee'] = $this->Employee_model->get_employees($id);
 
 		if(empty($data['employee'])){
             show_404();
         }
+		 
 
 		$this->load->view('templates/header');
 		$this->load->view('employees/view',$data);
@@ -43,6 +43,8 @@ class Employees extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 
 			//  load views
+			 
+
 			$this->load->view('templates/header');
 			$this->load->view('employees/create');
 			$this->load->view('templates/footer');
@@ -63,12 +65,10 @@ class Employees extends CI_Controller {
 	
     public function delete($id){
       
-
+		$this->Task_model->delete_empTasks($id);
         $this->Employee_model->delete_emp($id);
 
-        // Set message
-        // $this->session->set_flashdata('post_deleted', 'Your post has been deleted');
-
+       
         redirect('/');
     }
 
@@ -79,14 +79,13 @@ class Employees extends CI_Controller {
         $data['employee'] = $this->Employee_model->get_employees($id);
         $data['tasks'] = $this->Task_model->get_tasks($id);
 
-		// print_r($data['tasks']);
-		// die();
+		
 
         if(empty($data['employee'])){
             show_404();
         }
 
-        // $data['title'] = 'Edit Post';
+	 
 
         $this->load->view('templates/header');
         $this->load->view('employees/edit', $data);
