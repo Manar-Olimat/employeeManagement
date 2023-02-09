@@ -59,4 +59,12 @@ public function delete_emp($id){
 
         return $this->db->update('employee', $data);
     }
+
+    function empList(){
+        $this->db->select('*');
+        $this->db->from('employee');
+        $query=$this->db->get();
+return $query->result();
+
+    }
 }

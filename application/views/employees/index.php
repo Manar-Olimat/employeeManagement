@@ -49,7 +49,7 @@
 
 
 <!-- ALL EMPLOYEES -->
-
+<a href="<?php echo base_url(); ?>excel">excel</a>
 <section>
   <div class="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4">
 

@@ -1,4 +1,6 @@
 <?php
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Employees extends CI_Controller {
 
@@ -102,5 +104,38 @@ class Employees extends CI_Controller {
         redirect('/');
 
     }
+
+
+	function export_excel(){
+		// fetch data
+$emp_lis=$this->Employee_model->empList();
+
+
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="employee.xlsx"');
+$spreadsheet=new Spreadsheet();
+$sheet=$spreadsheet->getActiveSheet();
+$sheet->setCellValue('A1','Emp.Id');
+$sheet->setCellValue('B1','Emp Name');
+$sheet->setCellValue('C1','Emp Phone');
+$sheet->setCellValue('D1','Emp Address');
+
+$ssn=1;
+
+foreach($emp_lis as $emp){
+	// var_dump($emp);
+	$sheet->setCellValue('A'.$ssn,$emp->id);
+	$sheet->setCellValue('B'.$ssn,$emp->name);
+	$sheet->setCellValue('C'.$ssn,$emp->phone);
+	$sheet->setCellValue('D'.$ssn,$emp->address);
+
+	$ssn++;
+   }
+   
+
+$writer=new Xlsx($spreadsheet);
+$writer->save('php://output');
+
+	}
 
 }
